@@ -19,6 +19,7 @@ app = Flask(__name__)
 def home():
     if request.method == 'POST':
         text = request.form['text']
+        trg_lang = request.form['language']
         # Aquí es donde procesarías el texto.
         # Detect the language
         language = GetLanguage(text)
@@ -26,7 +27,7 @@ def home():
 
         # Translate if not already English
         if language != 'en':
-            translation = Translate(text, language)
+            translation = Translate(text, language, trg_lang)
             print("\nTranslation:\n{}".format(translation))
 
         return render_template('home.html', translated_text=translation,lang_detected=language)
@@ -66,7 +67,7 @@ def GetLanguage(text):
     # Return the language
     return language
 
-def Translate(text, source_language):
+def Translate(text, source_language, target_lang):
     translation = ''
 
     # Use the Translator translate function
@@ -77,7 +78,7 @@ def Translate(text, source_language):
     params = {
         'api-version': '3.0',
         'from': source_language,
-        'to': ['en']
+        'to': [target_lang]
     }
 
     headers = {
