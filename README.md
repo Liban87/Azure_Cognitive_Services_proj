@@ -8,7 +8,7 @@ If you want to reproduce the results shown here, you first must have an Azure su
 
 ![MyResources](./ResourceGroupPIC "a title")
 
-After doing so, you need to fork this repository on your own GitHub and configure your Web-App for continous integration from GitHub.
+After doing so, you need to fork this repository on your own GitHub and configure your Web-App for continous integration from GitHub, don´t forget to replace the credentials of your own cognitive services account in this [file][./app.py].
 
 # Using
 After you access the service from the link in the briefing, you should see a page like the one bellow, where you write your text in the space and click on "traducir".
