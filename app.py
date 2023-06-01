@@ -25,10 +25,9 @@ def home():
         language = GetLanguage(text)
         print('Language:',language)
 
-        # Translate if not already English
-        if language != 'en':
-            translation = Translate(text, language, trg_lang)
-            print("\nTranslation:\n{}".format(translation))
+        # Translate
+        translation = Translate(text, language, trg_lang)
+        print("\nTranslation:\n{}".format(translation))
 
         return render_template('home.html', translated_text=translation,lang_detected=language)
     
